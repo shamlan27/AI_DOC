@@ -1,0 +1,25 @@
+# Root-level dependencies (not needed in repo)
+composer.json
+composer.lock
+vendor/
+
+# IDE and OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Node modules (if any at root)
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary files
+*.tmp
+.env
+.env.local
