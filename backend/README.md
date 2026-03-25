@@ -21,6 +21,25 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## Symptom AI Module
+
+This project includes a Python symptom recommendation module used by the API endpoint below:
+
+- `POST /api/symptom-recommendations`
+
+Request body:
+
+- `symptoms` (required string)
+- `top_k` (optional integer, default `3`)
+
+Environment variables:
+
+- `SYMPTOM_AI_PYTHON` (default `python`)
+- `SYMPTOM_AI_SCRIPT` (default `ai/symptom_recommender.py`)
+- `SYMPTOM_AI_TIMEOUT` (default `10` seconds)
+
+If Python is not available or the module fails, the API returns a safe fallback list of top-rated doctors.
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.

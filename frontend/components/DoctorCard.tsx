@@ -32,8 +32,8 @@ export default function DoctorCard({ doctor, onBook }: DoctorCardProps) {
 
                     <div className="mt-4">
                         <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border
-              ${doctor.availability.includes('Available') ? 'bg-green-500/10 text-green-400 border-green-500/20' : 'bg-red-500/10 text-red-400 border-red-500/20'}`}>
-                            {doctor.availability}
+              ${String(doctor.availability ?? '').includes('Available') ? 'bg-green-500/10 text-green-400 border-green-500/20' : 'bg-red-500/10 text-red-400 border-red-500/20'}`}>
+                            {doctor.availability ?? 'Availability not provided'}
                         </span>
                     </div>
                 </div>

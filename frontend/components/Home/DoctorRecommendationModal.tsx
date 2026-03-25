@@ -48,8 +48,8 @@ export default function DoctorRecommendationModal({ isOpen, onClose, doctors, on
                                     )}
                                 </div>
                                 <div className="mt-3 flex items-center gap-2 text-xs">
-                                    <span className={`px-2.5 py-1 rounded-full border ${doctor.availability.includes('Available') ? 'bg-green-500/10 text-green-400 border-green-500/20' : 'bg-red-500/10 text-red-400 border-red-500/20'}`}>
-                                        {doctor.availability}
+                                    <span className={`px-2.5 py-1 rounded-full border ${String(doctor.availability ?? '').includes('Available') ? 'bg-green-500/10 text-green-400 border-green-500/20' : 'bg-red-500/10 text-red-400 border-red-500/20'}`}>
+                                        {doctor.availability ?? 'Availability not provided'}
                                     </span>
                                 </div>
                             </div>

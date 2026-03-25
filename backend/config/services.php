@@ -41,4 +41,10 @@ return [
         'redirect' => env('GOOGLE_REDIRECT'),
     ],
 
+    'symptom_ai' => [
+        'python_executable' => env('SYMPTOM_AI_PYTHON', 'python'),
+        'script_path' => env('SYMPTOM_AI_SCRIPT', 'ai/symptom_recommender.py'),
+        'timeout' => env('SYMPTOM_AI_TIMEOUT', 10),
+    ],
+
 ];

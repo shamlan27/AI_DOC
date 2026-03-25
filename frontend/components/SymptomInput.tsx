@@ -22,25 +22,19 @@ export default function SymptomInput() {
     // but we will simply log the booking action for now or redirect.
     const router = useRouter();
 
-    const handleAnalyze = () => {
+    const handleAnalyze = async () => {
         if (!symptoms.trim()) return;
         setIsAnalyzing(true);
 
-        // Simulate Analysis
-        setTimeout(async () => {
-            // Fetch real doctors from backend
-            try {
-                const allDoctors = await doctorService.getAllDoctors();
-                // Simulate AI filtering (randomly pick 3 for now, or returns all)
-                // In a real app, send symptoms to backend and get specific recommendations
-                setDoctors(allDoctors.slice(0, 3));
-                setShowModal(true);
-            } catch (error) {
-                console.error("Failed to fetch recommendations:", error);
-            } finally {
-                setIsAnalyzing(false);
-            }
-        }, 2000);
+        try {
+            const recommendedDoctors = await doctorService.getRecommendedDoctors(symptoms, 3);
+            setDoctors(recommendedDoctors);
+            setShowModal(true);
+        } catch (error) {
+            console.error("Failed to fetch recommendations:", error);
+        } finally {
+            setIsAnalyzing(false);
+        }
     };
 
     const handleBook = (doctor: Doctor) => {

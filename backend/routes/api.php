@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AppointmentController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\DoctorController;
 use App\Http\Controllers\Api\ReportController;
+use App\Http\Controllers\Api\SymptomAnalysisController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/forgot-password', [\App\Http\Controllers\Api\ForgotPasswordController::class, 'sendResetLinkEmail']);
 Route::post('/reset-password', [\App\Http\Controllers\Api\NewPasswordController::class, 'store']);
 Route::post('/analyze-report', [\App\Http\Controllers\Api\ReportAnalysisController::class, 'analyze']);
+Route::post('/symptom-recommendations', [SymptomAnalysisController::class, 'recommend']);
 
 Route::get('/test-email', function (Request $request) {
     $email = $request->query('email', 'test@example.com');
