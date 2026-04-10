@@ -1,0 +1,76 @@
+[
+  {"text": "severe headache migraine dizziness nausea sensitivity to light", "specialty": "Neurologist"},
+  {"text": "tingling numbness tremor memory loss confusion seizure", "specialty": "Neurologist"},
+  {"text": "sudden weakness one side speech difficulty facial droop", "specialty": "Neurologist"},
+  {"text": "vertigo imbalance blackout recurrent headache neck stiffness", "specialty": "Neurologist"},
+
+  {"text": "chest pain shortness of breath high blood pressure palpitations", "specialty": "Cardiologist"},
+  {"text": "irregular heartbeat fatigue swelling ankles heart discomfort", "specialty": "Cardiologist"},
+  {"text": "left arm pain chest tightness sweating cardiac pain", "specialty": "Cardiologist"},
+  {"text": "exertional breathlessness elevated bp heart murmur", "specialty": "Cardiologist"},
+
+  {"text": "skin rash itching acne eczema redness dry skin", "specialty": "Dermatologist"},
+  {"text": "hair loss scalp infection pigmentation hives allergy skin", "specialty": "Dermatologist"},
+  {"text": "fungal infection nail discoloration ringworm skin peeling", "specialty": "Dermatologist"},
+  {"text": "psoriasis dandruff dermatitis skin lesion mole changes", "specialty": "Dermatologist"},
+
+  {"text": "fever cough cold body pain sore throat weakness", "specialty": "General Physician"},
+  {"text": "stomach pain nausea vomiting diarrhea viral infection", "specialty": "General Physician"},
+  {"text": "fatigue mild fever seasonal flu body ache", "specialty": "General Physician"},
+  {"text": "gastric pain acidity bloating constipation indigestion", "specialty": "General Physician"},
+  {"text": "urinary burning mild fever dehydration weakness", "specialty": "General Physician"},
+  {"text": "general health check blood pressure sugar screening", "specialty": "General Physician"},
+
+  {"text": "child fever vaccination growth issue pediatric cough", "specialty": "Pediatrician"},
+  {"text": "newborn feeding problem child allergy infant infection", "specialty": "Pediatrician"},
+  {"text": "child rash recurrent cold school age wheezing", "specialty": "Pediatrician"},
+  {"text": "infant diarrhea dehydration teething fever", "specialty": "Pediatrician"},
+
+  {"text": "knee pain joint pain fracture back pain sports injury", "specialty": "Orthopedic Surgeon"},
+  {"text": "bone injury sprain shoulder pain muscle strain", "specialty": "Orthopedic Surgeon"},
+  {"text": "hip pain ligament tear ankle sprain", "specialty": "Orthopedic Surgeon"},
+  {"text": "slipped disc lumbar pain neck pain stiffness", "specialty": "Orthopedic Surgeon"},
+
+  {"text": "anxiety depression stress panic insomnia mood swings", "specialty": "Psychiatrist"},
+  {"text": "mental health trauma low mood fear overthinking", "specialty": "Psychiatrist"},
+  {"text": "panic attack sleep disturbance stress overthinking low mood", "specialty": "Psychiatrist"},
+  {"text": "social withdrawal hopelessness severe anxiety episodes", "specialty": "Psychiatrist"},
+
+  {"text": "ear pain sinus throat pain hearing loss nasal congestion", "specialty": "ENT Specialist"},
+  {"text": "tonsil infection runny nose ear discharge voice hoarseness", "specialty": "ENT Specialist"},
+  {"text": "ear blockage runny nose sore throat sinus pressure", "specialty": "ENT Specialist"},
+  {"text": "chronic sinusitis post nasal drip nasal blockage", "specialty": "ENT Specialist"},
+
+  {"text": "eye pain red eye blurred vision eye strain", "specialty": "Ophthalmologist"},
+  {"text": "itchy eyes watery eyes eye discharge swollen eyelid", "specialty": "Ophthalmologist"},
+  {"text": "light sensitivity vision blur foreign body sensation eye", "specialty": "Ophthalmologist"},
+  {"text": "dry eyes burning eye irritation conjunctivitis", "specialty": "Ophthalmologist"},
+
+  {"text": "irregular periods pelvic pain pregnancy check hormonal imbalance", "specialty": "Gynecologist"},
+  {"text": "vaginal infection menstrual cramps fertility issue women health", "specialty": "Gynecologist"},
+  {"text": "period pain hormonal acne irregular cycle", "specialty": "Gynecologist"},
+  {"text": "pregnancy nausea missed period lower abdominal pain", "specialty": "Gynecologist"},
+
+  {"text": "diabetes thyroid weight gain hormone disorder sugar levels", "specialty": "Endocrinologist"},
+  {"text": "high glucose insulin resistance thyroid fatigue endocrine", "specialty": "Endocrinologist"},
+  {"text": "blood sugar fluctuation insulin fatigue thyroid symptoms", "specialty": "Endocrinologist"},
+  {"text": "pcos hormonal imbalance obesity metabolic syndrome", "specialty": "Endocrinologist"},
+
+  {"text": "tooth pain gum swelling cavity tooth sensitivity jaw pain", "specialty": "Dentist"},
+  {"text": "bleeding gums bad breath tooth decay dental infection", "specialty": "Dentist"},
+  {"text": "wisdom tooth pain molar pain chewing pain jaw tenderness", "specialty": "Dentist"},
+  {"text": "tooth abscess swollen gum pus dental pain fever", "specialty": "Dentist"},
+
+  {"text": "appendix pain right lower abdomen fever vomiting", "specialty": "General Surgeon"},
+  {"text": "hernia swelling groin pain surgical consultation", "specialty": "General Surgeon"},
+  {"text": "gallbladder stone pain upper abdomen after meals", "specialty": "General Surgeon"},
+
+  {"text": "chronic cough wheezing chest congestion asthma attack", "specialty": "Pulmonologist"},
+  {"text": "shortness of breath chronic smoker lung infection", "specialty": "Pulmonologist"},
+
+  {"text": "burning urination flank pain kidney stone blood urine", "specialty": "Urologist"},
+  {"text": "prostate symptoms urinary retention frequent urination night", "specialty": "Urologist"},
+
+  {"text": "persistent abdominal pain reflux ulcer gastric bleeding", "specialty": "Gastroenterologist"},
+  {"text": "jaundice liver pain hepatitis digestive disorder", "specialty": "Gastroenterologist"}
+]

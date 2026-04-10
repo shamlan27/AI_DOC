@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AppointmentController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\DoctorController;
+use App\Http\Controllers\Api\HospitalController;
 use App\Http\Controllers\Api\ReportController;
 use App\Http\Controllers\Api\SymptomAnalysisController;
 use Illuminate\Http\Request;
@@ -36,6 +37,9 @@ Route::get('/auth/google/callback', [\App\Http\Controllers\Api\SocialAuthControl
 
 Route::get('/doctors', [DoctorController::class, 'index']);
 Route::get('/doctors/{id}', [DoctorController::class, 'show']);
+Route::get('/doctors/{id}/slot-availability', [DoctorController::class, 'slotAvailability']);
+Route::get('/hospitals', [HospitalController::class, 'index']);
+Route::get('/hospitals/{id}', [HospitalController::class, 'show']);
 
 // Protected Routes
 Route::middleware('auth:sanctum')->group(function () {
@@ -45,13 +49,13 @@ Route::middleware('auth:sanctum')->group(function () {
     // Appointments
     Route::get('/appointments', [AppointmentController::class, 'index']);
     Route::post('/appointments', [AppointmentController::class, 'store']);
+    Route::patch('/appointments/{appointment}/reschedule', [AppointmentController::class, 'reschedule']);
+    Route::post('/appointments/{appointment}/review', [AppointmentController::class, 'submitReview']);
 
     // Medical Reports
     Route::get('/reports', [ReportController::class, 'index']);
-    // Medical Reports
-    // Medical Reports
-    Route::get('/reports', [ReportController::class, 'index']);
     Route::post('/reports', [ReportController::class, 'store']);
+    Route::get('/reports/{report}/download', [ReportController::class, 'download']);
 
     // Account Management
     Route::post('/send-delete-otp', [AuthController::class, 'sendDeleteOtp']);

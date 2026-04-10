@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
 
@@ -19,15 +20,18 @@ class AuthController extends Controller
     public function sendRegistrationOtp(Request $request)
     {
         \Illuminate\Support\Facades\Log::info("OTP Request for: " . $request->email);
-        
-        try {
-            $request->validate([
-                'email' => 'required|string|email|max:255|unique:users',
-            ]);
-        } catch (\Exception $e) {
-            \Illuminate\Support\Facades\Log::error("Validation failed for: " . $request->email);
-            throw $e;
-        }
+
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|string|email|max:255',
+        ]);
+
+        $validator->after(function ($validator) use ($request) {
+            if (User::where('email', $request->email)->exists()) {
+                $validator->errors()->add('email', 'This email is already registered. Please login instead.');
+            }
+        });
+
+        $validator->validate();
 
         $otp = rand(100000, 999999);
         \Illuminate\Support\Facades\Cache::put('otp_' . $request->email, $otp, now()->addMinutes(10));
@@ -47,12 +51,20 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255',
             'password' => ['required', 'confirmed', \Illuminate\Validation\Rules\Password::min(8)->mixedCase()->numbers()->symbols()],
             'otp' => 'required|digits:6',
         ]);
+
+        $validator->after(function ($validator) use ($request) {
+            if (User::where('email', $request->email)->exists()) {
+                $validator->errors()->add('email', 'This email is already registered. Please login instead.');
+            }
+        });
+
+        $validator->validate();
 
         if ($request->otp != \Illuminate\Support\Facades\Cache::get('otp_' . $request->email)) { 
              throw ValidationException::withMessages([

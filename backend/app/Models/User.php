@@ -24,6 +24,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'is_admin',
     ];
 
     /**
@@ -56,6 +58,11 @@ class User extends Authenticatable
     public function medicalReports()
     {
         return $this->hasMany(MedicalReport::class);
+    }
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
     }
 
     /**

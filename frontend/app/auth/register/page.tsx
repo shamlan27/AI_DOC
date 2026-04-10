@@ -47,14 +47,14 @@ export default function Register() {
             setToast({ message: 'OTP sent to your email!', type: 'success' });
             setShowOTP(true);
         } catch (error: any) {
-            console.error(error);
-            let message = error.response?.data?.message || 'Failed to send OTP. Please try again.';
+            const emailError = error.response?.data?.email;
+            const message = error.response?.data?.message || (Array.isArray(emailError) ? emailError[0] : emailError) || 'Failed to send OTP. Please try again.';
 
-            if (message.includes('email has already been taken')) {
-                message = 'This email is already registered. Please login instead.';
-            }
+            const normalizedMessage = message.includes('email has already been taken') || message.includes('already registered')
+                ? 'This email is already registered. Please login instead.'
+                : message;
 
-            setToast({ message, type: 'error' });
+            setToast({ message: normalizedMessage, type: 'error' });
         } finally {
             setIsLoading(false);
         }

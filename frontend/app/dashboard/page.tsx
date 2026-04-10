@@ -187,6 +187,13 @@ export default function Dashboard() {
                                                         <span className="w-2 h-2 rounded-full bg-green-500"></span>
                                                         {apt.doctor?.specialization || 'General'} • {apt.time}
                                                     </p>
+                                                    <div className="mt-3 flex flex-wrap gap-2 text-[11px] text-gray-300">
+                                                        <span className="px-2 py-1 rounded-full bg-white/5 border border-white/10">Booking ID: {apt.booking_id || `BK-${apt.id}`}</span>
+                                                        <span className="px-2 py-1 rounded-full bg-white/5 border border-white/10">Queue #: {apt.queue_number || 1}</span>
+                                                        <span className="px-2 py-1 rounded-full bg-white/5 border border-white/10">
+                                                            ETA: {apt.estimated_arrival_time ? new Date(apt.estimated_arrival_time).toLocaleString() : 'Calculating...'}
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         ))

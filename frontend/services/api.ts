@@ -21,4 +21,21 @@ api.interceptors.request.use(
     }
 );
 
+// Add a response interceptor to handle 401 errors
+api.interceptors.response.use(
+    (response) => response,
+    (error) => {
+        if (error.response?.status === 401) {
+            // Clear auth data on 401 Unauthenticated
+            localStorage.removeItem('token');
+            // Redirect to login will be handled by the component
+            return Promise.reject({
+                ...error,
+                message: 'Session expired. Please log in again.'
+            });
+        }
+        return Promise.reject(error);
+    }
+);
+
 export default api;

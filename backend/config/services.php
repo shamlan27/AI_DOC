@@ -44,7 +44,10 @@ return [
     'symptom_ai' => [
         'python_executable' => env('SYMPTOM_AI_PYTHON', 'python'),
         'script_path' => env('SYMPTOM_AI_SCRIPT', 'ai/symptom_recommender.py'),
+        'dataset_path' => env('SYMPTOM_AI_DATASET', 'ai/data/symptom_training_data.json'),
+        'model_path' => env('SYMPTOM_AI_MODEL', 'ai/models/symptom_model.json'),
         'timeout' => env('SYMPTOM_AI_TIMEOUT', 10),
+        'train_timeout' => env('SYMPTOM_AI_TRAIN_TIMEOUT', 60),
     ],
 
 ];

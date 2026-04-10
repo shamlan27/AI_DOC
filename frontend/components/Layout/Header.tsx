@@ -14,7 +14,7 @@ export default function Header() {
 
     const navItems = [
         { name: 'Home', href: '/' },
-        { name: 'Find a Doctor', href: '/#symptom-analyzer' },
+        { name: 'AI Analyzer', href: '/#symptom-analyzer' },
         { name: 'Report Analyzer', href: '/#report-analyzer' },
         { name: 'About', href: '/about' },
         { name: 'Contact', href: '/contact' },

@@ -70,6 +70,15 @@ export default function ReportsTab() {
         }
     };
 
+    const handleDownload = async (report: MedicalReport) => {
+        try {
+            await reportService.downloadReport(report.id, `report-${report.id}`);
+        } catch (error) {
+            console.error('Download failed', error);
+            alert('Failed to download report. Please try again.');
+        }
+    };
+
     if (isLoading) return <div className="text-center py-10 text-gray-400">Loading reports...</div>;
 
     return (
@@ -104,6 +113,17 @@ export default function ReportsTab() {
                             </div>
                             <h3 className="text-white font-bold truncate mb-1" title={report.doctor_name}>{report.doctor_name}</h3>
                             <p className="text-xs text-gray-400 mb-4">{report.report_type}</p>
+                            <div className="mb-4 flex flex-wrap gap-2 text-[11px] text-gray-300">
+                                <span className="px-2 py-1 rounded-full bg-white/5 border border-white/10">
+                                    Booking ID: {report.appointment?.booking_id || `BK-${report.id}`}
+                                </span>
+                                <span className="px-2 py-1 rounded-full bg-white/5 border border-white/10">
+                                    Queue #: {report.appointment?.queue_number || 1}
+                                </span>
+                                <span className="px-2 py-1 rounded-full bg-white/5 border border-white/10">
+                                    ETA: {report.appointment?.estimated_arrival_time ? new Date(report.appointment.estimated_arrival_time).toLocaleString() : 'Not set'}
+                                </span>
+                            </div>
                             <div className="flex gap-2">
                                 <a
                                     href={`${process.env.NEXT_PUBLIC_API_URL?.replace('/api', '')}/storage/${report.file_path}`}
@@ -113,12 +133,21 @@ export default function ReportsTab() {
                                 >
                                     View
                                 </a>
-                                <button className="px-3 py-2 bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white rounded-lg transition-colors">
+                                <button
+                                    onClick={() => handleDownload(report)}
+                                    className="px-3 py-2 bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white rounded-lg transition-colors"
+                                    title="Download report"
+                                >
                                     ⬇️
                                 </button>
                             </div>
                         </div>
                     ))}
+                    {reports.length === 0 && (
+                        <div className="md:col-span-2 lg:col-span-3 text-center py-16 bg-white/5 rounded-3xl border border-white/10 border-dashed text-gray-400">
+                            No reports available yet. Your admin-uploaded reports will appear here.
+                        </div>
+                    )}
                     {/* Add New Placeholer */}
                     <button
                         onClick={() => setView('upload')}

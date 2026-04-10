@@ -32,6 +32,18 @@ export default function Home() {
             and connect with world-class specialists in seconds.
           </p>
 
+          <div className="max-w-3xl mx-auto mb-10 p-5 rounded-2xl glass-panel border border-blue-500/20">
+            <p className="text-sm md:text-base text-blue-200 mb-4">
+              Already know which doctor you need? Book directly without using AI analysis.
+            </p>
+            <Link
+              href="/recommendations"
+              className="inline-block px-6 py-3 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-500 transition-all"
+            >
+              Browse Doctors & Book Now
+            </Link>
+          </div>
+
           <div id="symptom-analyzer" className="scroll-mt-28">
             <SymptomInput />
           </div>
